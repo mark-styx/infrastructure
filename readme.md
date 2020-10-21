@@ -1,5 +1,5 @@
 ## Data Flow
-![image info](data%20flow.png)
+![image info](./bin/data%20flow.png)
 
 ## Scheduling
-![image info](scheduling.png)
+![image info](./bin/scheduling.png)
