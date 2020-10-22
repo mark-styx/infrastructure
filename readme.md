@@ -8,7 +8,7 @@
 
 **Jobs Table *(id: 1)*:**
 
-![image info](./bin/jobs_tbl.png)
+![image info](./bin/jobsTbl.png)
 
 Jobs will be entered into the jobs table (id:1) specified as:
 - *title*: text, name of the job
@@ -27,7 +27,7 @@ These jobs will be parsed into a job queue based on the scheduling parameters in
 
 **Job Queue Table *(id: 2)*:**
 
-![image info](./bin/job_queue_tbl.png)
+![image info](./bin/jobQueueTbl.png)
 
 From this queue, batches of jobs will be collected every five minutes and all jobs that are due (between now and 15 minutes back) will be executed and moved to the job log. Only jobs that have not run or are currently running will be on the job queue, and all jobs that have attempted (completed or failed) will live in the job log.
 
