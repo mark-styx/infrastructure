@@ -33,7 +33,10 @@ values
     ('test5','test_sp5','true','true','15','all','6','30','next',null,null),
     ('test6','test_sp6','true','true','1,15','all','6','30','next',null,null),
     ('test7','test_sp7','true','true','25','all','6','30','prev',null,null),
-    ('test8','test_sp8','true','true','all','2','6','30','next',null,null)
+    ('test8','test_sp8','true','true','all','2','6','30','next',null,null),
+    ('test10','test_sp10','true','false','last','all','12','00','next',null,null),
+    ('test11','test_sp11','true','false','last-3','all','12','00','next',null,null),
+    ('test12','test_sp12','true','false','last-9','all','12','00','next',null,null)
 ;
 
 -- holiday table to be referenced by the temp workday calendar

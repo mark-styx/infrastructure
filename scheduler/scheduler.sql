@@ -16,7 +16,7 @@ begin
 	-- create temporary calendar to determine dates with boolean workday
 	declare
 		@MinDate date = (select '1/1/2019'),
-		@MaxDate date = getdate()
+		@MaxDate date = dateadd(d,365,getdate())
 	;
 
 	if object_id('tempdb..#calendar') is not null
@@ -60,6 +60,17 @@ begin
     -- populate tree data
     insert into #job_tree
     select * from sch.jobs where active = 'true'
+
+	-- convert relative month dates
+	update #job_tree
+		set days_of_month = case
+			when days_of_month like '%-%'
+				then datepart(d,eomonth(getdate())) - cast(substring(days_of_month,charindex('-',days_of_month)+1,len(days_of_month)) as int)
+			when days_of_month like '%+%'
+				then datepart(d,eomonth(getdate())) + cast(substring(days_of_month,charindex('+',days_of_month)+1,len(days_of_month)) as int)
+			else datepart(d,eomonth(getdate()))
+		end
+	where days_of_month like '%last%'
 
 	-- create temp table to list the jobs that will run today
 	create table #todays_jobs (

@@ -15,7 +15,7 @@ Jobs will be entered into the jobs table (id:1) specified as:
 - *sp_name*: text, title of the stored procedure
 - *active*: boolean, active status of the job
 - *workdays*: boolean, whether or not the job should only run on word days
-- *days_of_month*: text, comma separated values indicating the day of month the job should run or ('all','first','last')*
+- *days_of_month*: text, comma separated values indicating the day of month the job should run or ('all','last'); the 'last' notation can be adjusted positively or negatively (e.g. 'last-5') for items that should run relative to the end of the month.
 - *days_of_week*: text, comma separated values indicating the day of the week or 'all' (1-7, 1=Sun)
 - *hour*: text, comma separated values indicating the hours of the day the job should run (0-24)
 - *minute*: text, comma separated values indicating the minute cadence the job should run (00-60)
